@@ -1,0 +1,32 @@
+@use "@theholocron/config/src" as config;
+
+////
+/// @group Text
+////
+
+/// Reset text back to its original browser defaults
+/// @since 0.1.0
+/// @param {String} $className ["text-reset"] - a CSS class name that will prefix all helpers
+/// @param {Number} $line-height [config.$line-height] - a valid CSS number with which to rese
+/// @param {String} $family [config.$font-family] - a font family with which to reset
+/// @param {String} $weight [normal] - a font weight with which to reset
+@mixin text-reset($className: "text-reset", $line-height: config.$line-height, $family: config.$font-family, $weight: normal) {
+	.#{$className} {
+		font-family: $family;
+		/* We deliberately do NOT reset font-size. */
+		font-style: normal;
+		font-weight: $weight;
+		letter-spacing: normal;
+		line-break: auto;
+		line-height: $line-height;
+		text-align: left; // Fallback for where `start` is not supported
+		text-align: start;
+		text-decoration: none;
+		text-shadow: none;
+		text-transform: none;
+		white-space: normal;
+		word-break: normal;
+		word-spacing: normal;
+		word-wrap: normal;
+	}
+}

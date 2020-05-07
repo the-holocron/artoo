@@ -1,0 +1,5 @@
+@use "./index" as *;
+
+@include text-reset();
+@include text-truncate();
+@include text-underline();

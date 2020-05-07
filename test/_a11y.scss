@@ -1,0 +1,16 @@
+/* stylelint-disable scss/media-feature-value-dollar-variable */
+@use "sass-true/sass/true" as *;
+@use "../src/a11y" as *;
+
+@include describe("a11y") {
+	@include it("should print out styles") {
+		@include assert() {
+			@include output() {
+				@include screen-reader-only();
+			}
+
+			@include expect() {
+			}
+		}
+	}
+}

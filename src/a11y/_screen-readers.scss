@@ -1,0 +1,38 @@
+////
+/// @group A11Y
+////
+
+/// Hide an element to all devices **except screen readers** with `.sr-only`. Combine `.sr-only` with `.is-focusable` to show the element again when it’s focused (e.g. by a keyboard-only user).
+/// Useful for "Skip to main content" links
+/// @author HTML5 Boilerplate
+/// @since 0.1.0
+/// @link http://a11yproject.com/posts/how-to-hide-content/
+/// @link http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+/// @param {String} $className ["is-sr-only"] - a CSS class name that will prefix all helpers
+/// @param {Number} $size [.625rem] - a valid CSS number
+/// @example html
+/// <a class="sr-only is-focusable" href="#content">Skip to main content</a>
+@mixin screen-reader-only($className: "is-sr-only", $size: .0625rem) {
+	.#{$className} {
+		position: absolute;
+		width: $size;
+		height: $size;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		margin: -$size; // stylelint-disable-line sh-waqar/declaration-use-variable
+		border: 0;
+		padding: 0;
+
+		&.is-focusable {
+			&:active,
+			&:focus {
+				position: static;
+				width: auto;
+				height: auto;
+				overflow: visible;
+				clip: auto;
+				margin: 0;
+			}
+		}
+	}
+}

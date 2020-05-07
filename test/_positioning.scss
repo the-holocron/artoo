@@ -1,0 +1,16 @@
+/* stylelint-disable scss/media-feature-value-dollar-variable */
+@use "sass-true/sass/true" as *;
+@use "../src/positioning" as *;
+
+@include describe("positioning") {
+	@include it("should print out styles") {
+		@include assert() {
+			@include output() {
+				@include center();
+			}
+
+			@include expect() {
+			}
+		}
+	}
+}

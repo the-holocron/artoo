@@ -1,0 +1,103 @@
+@use "sass:map";
+@use "@theholocron/config/src" as config;
+@use "@theholocron/scss-mixins/src/at-rules/breakpoints" as *;
+
+////
+/// @group Positioning
+////
+
+/// Clearfix
+/// @author Nicolas Gallagher
+/// @since 0.1.0
+/// For modern browsers
+/// 1. The space content is one way to avoid an Opera bug when the
+///    `contenteditable` attribute is included anywhere else in the document.
+///    Otherwise it causes space to appear at the top and bottom of elements
+///    that are clearfixed.
+/// 2. The use of `table` rather than `block` is only necessary if using
+///    `::before` to contain the top-margins of child elements.
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/
+/// @param {String} $className ["clearfix"] - a CSS class name that will prefix all helpers
+/// @param {Map} $breakpoints [config.$breakpoints] - a map of grid breakpoints
+/// @example scss
+///   @include clear($className: c, $breakpoints: ("sm": 480px));
+/// @example html
+///   <div class="clear-fix">...</div>
+@mixin clearfix($className: "clearfix", $breakpoints: config.$breakpoints) {
+	#{$className} {
+		@supports not (display: flow-root) {
+			&::before,
+			&::after {
+				display: table; // 2
+				content: " "; // 1
+			}
+
+			&::after {
+				clear: both;
+			}
+		}
+		@supports (display: flow-root) {
+			display: flow-root;
+		}
+
+		@each $breakpoint in map.keys($breakpoints) {
+			@include media-breakpoint-up($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint},
+				&-#{$breakpoint}-up {
+					@supports not (display: flow-root) {
+						&::before,
+						&::after {
+							display: table; // 2
+							content: " "; // 1
+						}
+
+						&::after {
+							clear: both;
+						}
+					}
+					@supports (display: flow-root) {
+						display: flow-root;
+					}
+				}
+			}
+
+			@include media-breakpoint-down($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint}-down {
+					@supports not (display: flow-root) {
+						&::before,
+						&::after {
+							display: table; // 2
+							content: " "; // 1
+						}
+
+						&::after {
+							clear: both;
+						}
+					}
+					@supports (display: flow-root) {
+						display: flow-root;
+					}
+				}
+			}
+
+			@include media-breakpoint-only($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint}-only {
+					@supports not (display: flow-root) {
+						&::before,
+						&::after {
+							display: table; // 2
+							content: " "; // 1
+						}
+
+						&::after {
+							clear: both;
+						}
+					}
+					@supports (display: flow-root) {
+						display: flow-root;
+					}
+				}
+			}
+		}
+	}
+}

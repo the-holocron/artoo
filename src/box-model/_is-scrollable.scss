@@ -1,0 +1,44 @@
+@use "sass:map";
+@use "@theholocron/config/src" as config;
+@use "@theholocron/scss-mixins/src/at-rules/breakpoints" as *;
+
+////
+/// @group Box Model
+////
+
+/// Enable scrollable blocks of code Use `<pre>`s for multiple lines of code. Once again, be sure to escape any angle brackets in the code for proper rendering. You may optionally add the `.pre-scrollable` class, which will set a max-height of 350px and provide a y-axis scrollbar
+/// @since 0.1.0
+/// @param {String} $className ["is-scrollable"] - a CSS class name that will prefix all helpers
+/// @param {Map} $breakpoints [config.$breakpoints] - a map of grid breakpoints
+/// @param {Number} $height [config.$font-size] - a valid CSS number to multiply by the rows to max out the height; generally should match the font size used within the element
+/// @param {Number} $rows [20] - the number of rows the show;
+@mixin is-scrollable($className: "is-scrollable", $breakpoints: config.$breakpoints, $height: config.$font-size, $rows: 20) {
+	#{$className} {
+		max-height: ($rows * $height);
+		overflow-y: scroll;
+
+		@each $breakpoint in map.keys($breakpoints) {
+			@include media-breakpoint-up($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint},
+				&-#{$breakpoint}-up {
+					max-height: ($rows * $height);
+					overflow-y: scroll;
+				}
+			}
+
+			@include media-breakpoint-down($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint}-down {
+					max-height: ($rows * $height);
+					overflow-y: scroll;
+				}
+			}
+
+			@include media-breakpoint-only($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint}-only {
+					max-height: ($rows * $height);
+					overflow-y: scroll;
+				}
+			}
+		}
+	}
+}

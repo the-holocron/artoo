@@ -1,0 +1,16 @@
+/* stylelint-disable scss/media-feature-value-dollar-variable */
+@use "sass-true/sass/true" as *;
+@use "../src/box-model" as *;
+
+@include describe("box-model") {
+	@include it("should print out styles") {
+		@include assert() {
+			@include output() {
+				@include is-scrollable();
+			}
+
+			@include expect() {
+			}
+		}
+	}
+}

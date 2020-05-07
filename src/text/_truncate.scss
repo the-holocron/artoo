@@ -1,0 +1,46 @@
+@use "sass:map";
+@use "@theholocron/config/src" as config;
+@use "@theholocron/scss-mixins/src/at-rules/breakpoints" as *;
+
+////
+/// @group Text
+////
+
+/// Truncate the text
+/// @since 0.1.0
+/// @param {String} $className ["text-truncate"] - a CSS class name that will prefix all helpers
+/// @param {Map} $breakpoints [config.$breakpoints] - a map of grid breakpoints
+@mixin text-truncate($className: "text-truncate", $breakpoints: config.$breakpoints) {
+	.#{$className} {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		@each $breakpoint in map.keys($breakpoints) {
+			@include media-breakpoint-up($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint},
+				&-#{$breakpoint}-up {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			@include media-breakpoint-down($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint}-down {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			@include media-breakpoint-only($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint}-only {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+}

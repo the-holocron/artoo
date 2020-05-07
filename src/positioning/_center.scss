@@ -1,0 +1,111 @@
+@use "sass:map";
+@use "@theholocron/config/src" as config;
+@use "@theholocron/scss-mixins/src/at-rules/breakpoints" as *;
+@use "@theholocron/scss-mixins/src/positioning/center" as *;
+
+////
+/// @group Positioning
+////
+
+/// Perfectly center things along the x or y-axis, or perhaps both
+/// @since 0.1.0
+/// @param {String} $className ["center"] - a CSS class name that will prefix all helpers
+/// @param {Map} $breakpoints [config.$breakpoints] - a map of grid breakpoints
+/// @example html
+/// <div class="pos-rel" style="height: 100px;">
+///   <div class="center">absolute centered on both axis</div>
+///   <div class="center-x">absolute centered on x axis</div>
+///   <div class="center-axis-y-xs-up">absolute centered on y axis</div>
+/// </div>
+@mixin center($className: "center", $breakpoints: config.$breakpoints) {
+	#{$className} {
+		&,
+		&-a,
+		&-all {
+			@include center();
+		}
+
+		&-x,
+		&-axis-x,
+		&-vertical {
+			@include center("vertical");
+		}
+
+		&-y,
+		&-axis-y,
+		&-y {
+			@include center("horizontal");
+		}
+
+		@each $breakpoint in map.keys($breakpoints) {
+			@include media-breakpoint-up($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint},
+				&-#{$breakpoint}-up,
+				&-a-#{$breakpoint},
+				&-a-#{$breakpoint}-up,
+				&-all-#{$breakpoint},
+				&-all-#{$breakpoint}-up {
+					@include center();
+				}
+
+				&-x-#{$breakpoint},
+				&-x-#{$breakpoint}-up,
+				&-axis-x-#{$breakpoint},
+				&-axis-x-#{$breakpoint}-up,
+				&-vertical-#{$breakpoint},
+				&-vertical-#{$breakpoint}-up {
+					@include center("vertical");
+				}
+
+				&-y-#{$breakpoint},
+				&-y-#{$breakpoint}-up,
+				&-axis-y-#{$breakpoint},
+				&-axis-y-#{$breakpoint}-up,
+				&-y-#{$breakpoint},
+				&-y-#{$breakpoint}-up {
+					@include center("horizontal");
+				}
+			}
+
+			@include media-breakpoint-down($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint}-down,
+				&-a-#{$breakpoint}-down,
+				&-all-#{$breakpoint}-down {
+					@include center();
+				}
+
+				&-x-#{$breakpoint}-down,
+				&-axis-x-#{$breakpoint}-down,
+				&-vertical-#{$breakpoint}-down {
+					@include center("vertical");
+				}
+
+				&-y-#{$breakpoint}-down,
+				&-axis-y-#{$breakpoint}-down,
+				&-y-#{$breakpoint}-down {
+					@include center("horizontal");
+				}
+			}
+
+			@include media-breakpoint-only($name: $breakpoint, $breakpoints: $breakpoints) {
+				&-#{$breakpoint}-only,
+				&-a-#{$breakpoint}-only,
+				&-all-#{$breakpoint}-only {
+					@include center();
+				}
+
+				&-x-#{$breakpoint}-only,
+				&-axis-x-#{$breakpoint}-only,
+				&-vertical-#{$breakpoint}-only {
+					@include center("vertical");
+				}
+
+				&-y-#{$breakpoint}-only,
+				&-axis-y-#{$breakpoint}-only,
+				&-y-#{$breakpoint}-only {
+					@include center("horizontal");
+				}
+			}
+		}
+	}
+}

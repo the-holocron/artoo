@@ -1,0 +1,16 @@
+/* stylelint-disable scss/media-feature-value-dollar-variable */
+@use "sass-true/sass/true" as *;
+@use "../src/text" as *;
+
+@include describe("text") {
+	@include it("should print out styles") {
+		@include assert() {
+			@include output() {
+				@include text-reset();
+			}
+
+			@include expect() {
+			}
+		}
+	}
+}

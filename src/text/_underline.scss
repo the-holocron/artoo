@@ -1,0 +1,24 @@
+@use "sass:map";
+@use "@theholocron/config/src" as config;
+
+////
+/// @group Text
+////
+
+/// Add an underline decoration to your heading.
+/// @since 0.1.0
+/// @param {String} $className ["text-underline"] - a CSS class name that will prefix all helpers
+/// @param {String} $direction ["bottom"] - a valid CSS number to multiply by the rows to max out the height; generally should match the font size used within the element
+/// @param {String} $border [config.$border-width solid] - the number of rows the show;
+/// @param {String} $padding [.25rem] -
+@mixin text-underline($className: "text-underline", $direction: "bottom", $border: config.$border-width solid, $padding: map.get(config.$spacing, qtr)) {
+	.#{$className} {
+		@if map.get(config.$box-directions, $direction) {
+			border-#{$direction}: $border;
+			padding-#{$direction}: $padding;
+		} @else {
+			border-bottom: $border;
+			padding-bottom: $padding;
+		}
+	}
+}
