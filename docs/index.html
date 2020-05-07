@@ -1,0 +1,294 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>@theholocron/artoo - v0.1.0</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="@theholocron/artoo - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>This utility droid provides a set of helpers for writing (S)CSS within the Galaxy.</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://the-holocron.github.io/artoo">@theholocron/artoo - v0.1.0</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="a11y"><a href="#a11y">a11y</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="a11y-mixin"><a href="#a11y-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="a11y" data-name="screen-reader-only" data-type="mixin"><a href="#a11y-mixin-screen-reader-only">screen-reader-only</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="box model"><a href="#box model">box model</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="box model-mixin"><a href="#box model-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="box model" data-name="is-scrollable" data-type="mixin"><a href="#box model-mixin-is-scrollable">is-scrollable</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="images"><a href="#images">images</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="images-mixin"><a href="#images-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="images" data-name="img-responsive" data-type="mixin"><a href="#images-mixin-img-responsive">img-responsive</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="positioning"><a href="#positioning">positioning</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="positioning-mixin"><a href="#positioning-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="positioning" data-name="centers" data-type="mixin"><a href="#positioning-mixin-centers">centers</a></li><li class="sidebar__item sassdoc__item" data-group="positioning" data-name="clearfix" data-type="mixin"><a href="#positioning-mixin-clearfix">clearfix</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="text"><a href="#text">text</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="text-mixin"><a href="#text-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="text" data-name="text-reset" data-type="mixin"><a href="#text-mixin-text-reset">text-reset</a></li><li class="sidebar__item sassdoc__item" data-group="text" data-name="text-truncate" data-type="mixin"><a href="#text-mixin-text-truncate">text-truncate</a></li><li class="sidebar__item sassdoc__item" data-group="text" data-name="text-underline" data-type="mixin"><a href="#text-mixin-text-underline">text-underline</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="a11y"><div class="container">a11y</div></h1><section class="main__sub-section" id="a11y-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="a11y-mixin-screen-reader-only"><h3 class="item__heading"><a class="item__name" href="#mixin-screen-reader-only">screen-reader-only</a></h3><span class="item__since">Since 0.1.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin screen-reader-only($className: &quot;is-sr-only&quot;, $size: .625rem) { 
+	.#{$className} {
+		position: absolute;
+		width: $size;
+		height: $size;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		margin: -$size; // stylelint-disable-line sh-waqar/declaration-use-variable
+		border: 0;
+		padding: 0;
+
+		&amp;.is-focusable {
+			&amp;:active,
+			&amp;:focus {
+				position: static;
+				width: auto;
+				height: auto;
+				overflow: visible;
+				clip: auto;
+				margin: 0;
+			}
+		}
+	}
+ }" data-collapsed="@mixin screen-reader-only($className: &quot;is-sr-only&quot;, $size: .625rem) { ... }"><code>@mixin screen-reader-only($className: &quot;is-sr-only&quot;, $size: .625rem) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Hide an element to all devices <strong>except screen readers</strong> with <code>.sr-only</code>. Combine <code>.sr-only</code> with <code>.is-focusable</code> to show the element again when it’s focused (e.g. by a keyboard-only user). Useful for &quot;Skip to main content&quot; links</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$className</code></th><td data-label="desc"><p>a CSS class name that will prefix all helpers</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;is-sr-only&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$size</code></th><td data-label="desc"><p>a valid CSS number</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>.625rem</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-html"><code>&lt;a class=&quot;sr-only is-focusable&quot; href=&quot;#content&quot;&gt;Skip to main content&lt;/a&gt;</code></pre></div><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="http://a11yproject.com/posts/how-to-hide-content/">http://a11yproject.com/posts/how-to-hide-content/</a></li><li><a href="http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1">http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>HTML5 Boilerplate</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="box model"><div class="container">box model</div></h1><section class="main__sub-section" id="box model-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="box model-mixin-is-scrollable"><h3 class="item__heading"><a class="item__name" href="#mixin-is-scrollable">is-scrollable</a></h3><span class="item__since">Since 0.1.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin is-scrollable($className: &quot;is-scrollable&quot;, $breakpoints: config.$breakpoints, $height: config.$font-size, $rows: 20) { 
+	.#{$className} {
+		max-height: ($rows * $height);
+		overflow-y: scroll;
+
+		@each $breakpoint in map.keys($breakpoints) {
+			@include media-breakpoint-up($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint},
+				&amp;-#{$breakpoint}-up {
+					max-height: ($rows * $height);
+					overflow-y: scroll;
+				}
+			}
+
+			@include media-breakpoint-down($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint}-down {
+					max-height: ($rows * $height);
+					overflow-y: scroll;
+				}
+			}
+
+			@include media-breakpoint-only($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint}-only {
+					max-height: ($rows * $height);
+					overflow-y: scroll;
+				}
+			}
+		}
+	}
+ }" data-collapsed="@mixin is-scrollable($className: &quot;is-scrollable&quot;, $breakpoints: config.$breakpoints, $height: config.$font-size, $rows: 20) { ... }"><code>@mixin is-scrollable($className: &quot;is-scrollable&quot;, $breakpoints: config.$breakpoints, $height: config.$font-size, $rows: 20) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Enable scrollable blocks of code Use <code>&lt;pre&gt;</code>s for multiple lines of code. Once again, be sure to escape any angle brackets in the code for proper rendering. You may optionally add the <code>.pre-scrollable</code> class, which will set a max-height of 350px and provide a y-axis scrollbar</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$className</code></th><td data-label="desc"><p>a CSS class name that will prefix all helpers</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;is-scrollable&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>a map of grid breakpoints</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>config.$breakpoints</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$height</code></th><td data-label="desc"><p>a valid CSS number to multiply by the rows to max out the height; generally should match the font size used within the element</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>config.$font-size</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$rows</code></th><td data-label="desc"><p>the number of rows the show;</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>20</code></td></tr></tbody></table></section></section></section><section class="main__section"><h1 class="main__heading" id="images"><div class="container">images</div></h1><section class="main__sub-section" id="images-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="images-mixin-img-responsive"><h3 class="item__heading"><a class="item__name" href="#mixin-img-responsive">img-responsive</a></h3><span class="item__since">Since 0.1.0 &mdash; &lt;ol&gt; &lt;li&gt;Set a maximum relative to the parent&lt;/li&gt; &lt;li&gt;Scale the height according to the width, otherwise you get stretching&lt;/li&gt; &lt;/ol&gt;</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin img-responsive($className: &quot;img-responsive&quot;, $breakpoints: config.$breakpoints) { 
+	.#{$className} {
+		display: block;
+		max-width: 100%; // 1
+		height: auto; // 2
+	}
+ }" data-collapsed="@mixin img-responsive($className: &quot;img-responsive&quot;, $breakpoints: config.$breakpoints) { ... }"><code>@mixin img-responsive($className: &quot;img-responsive&quot;, $breakpoints: config.$breakpoints) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Responsive images keep images from scaling beyond the width of their parents.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$className</code></th><td data-label="desc"><p>a CSS class name that will prefix all helpers</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;img-responsive&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>a map of grid breakpoints</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>config.$breakpoints</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>usage</p></div><pre class="example__code language-scss"><code>@include img-responsive();</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Mark Otto</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="positioning"><div class="container">positioning</div></h1><section class="main__sub-section" id="positioning-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="positioning-mixin-centers"><h3 class="item__heading"><a class="item__name" href="#mixin-centers">centers</a></h3><span class="item__since">Since 0.1.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin centers($className: &quot;center&quot;, $breakpoints: config.$breakpoints) { 
+	.#{$className} {
+		&amp;,
+		&amp;-a,
+		&amp;-all {
+			@include center();
+		}
+
+		&amp;-x,
+		&amp;-axis-x,
+		&amp;-vertical {
+			@include center(&quot;vertical&quot;);
+		}
+
+		&amp;-y,
+		&amp;-axis-y,
+		&amp;-horizontal {
+			@include center(&quot;horizontal&quot;);
+		}
+
+		@each $breakpoint in map.keys($breakpoints) {
+			@include media-breakpoint-up($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint},
+				&amp;-#{$breakpoint}-up,
+				&amp;-a-#{$breakpoint},
+				&amp;-a-#{$breakpoint}-up,
+				&amp;-all-#{$breakpoint},
+				&amp;-all-#{$breakpoint}-up {
+					@include center();
+				}
+
+				&amp;-x-#{$breakpoint},
+				&amp;-x-#{$breakpoint}-up,
+				&amp;-axis-x-#{$breakpoint},
+				&amp;-axis-x-#{$breakpoint}-up,
+				&amp;-vertical-#{$breakpoint},
+				&amp;-vertical-#{$breakpoint}-up {
+					@include center(&quot;vertical&quot;);
+				}
+
+				&amp;-y-#{$breakpoint},
+				&amp;-y-#{$breakpoint}-up,
+				&amp;-axis-y-#{$breakpoint},
+				&amp;-axis-y-#{$breakpoint}-up,
+				&amp;-horizontal-#{$breakpoint},
+				&amp;-horizontal-#{$breakpoint}-up {
+					@include center(&quot;horizontal&quot;);
+				}
+			}
+
+			@include media-breakpoint-down($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint}-down,
+				&amp;-a-#{$breakpoint}-down,
+				&amp;-all-#{$breakpoint}-down {
+					@include center();
+				}
+
+				&amp;-x-#{$breakpoint}-down,
+				&amp;-axis-x-#{$breakpoint}-down,
+				&amp;-vertical-#{$breakpoint}-down {
+					@include center(&quot;vertical&quot;);
+				}
+
+				&amp;-y-#{$breakpoint}-down,
+				&amp;-axis-y-#{$breakpoint}-down,
+				&amp;-horizontal-#{$breakpoint}-down {
+					@include center(&quot;horizontal&quot;);
+				}
+			}
+
+			@include media-breakpoint-only($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint}-only,
+				&amp;-a-#{$breakpoint}-only,
+				&amp;-all-#{$breakpoint}-only {
+					@include center();
+				}
+
+				&amp;-x-#{$breakpoint}-only,
+				&amp;-axis-x-#{$breakpoint}-only,
+				&amp;-vertical-#{$breakpoint}-only {
+					@include center(&quot;vertical&quot;);
+				}
+
+				&amp;-y-#{$breakpoint}-only,
+				&amp;-axis-y-#{$breakpoint}-only,
+				&amp;-horizontal-#{$breakpoint}-only {
+					@include center(&quot;horizontal&quot;);
+				}
+			}
+		}
+	}
+ }" data-collapsed="@mixin centers($className: &quot;center&quot;, $breakpoints: config.$breakpoints) { ... }"><code>@mixin centers($className: &quot;center&quot;, $breakpoints: config.$breakpoints) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Perfectly center things along the x or y-axis, or perhaps both</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$className</code></th><td data-label="desc"><p>a CSS class name that will prefix all helpers</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;center&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>a map of grid breakpoints</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>config.$breakpoints</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-html"><code>&lt;div class=&quot;pos-rel&quot; style=&quot;height: 100px;&quot;&gt;
+  &lt;div class=&quot;center&quot;&gt;absolute centered on both axis&lt;/div&gt;
+  &lt;div class=&quot;center-x&quot;&gt;absolute centered on x axis&lt;/div&gt;
+  &lt;div class=&quot;center-axis-y-xs-up&quot;&gt;absolute centered on y axis&lt;/div&gt;
+&lt;/div&gt;</code></pre></div></section><section class="main__item container item" id="positioning-mixin-clearfix"><h3 class="item__heading"><a class="item__name" href="#mixin-clearfix">clearfix</a></h3><span class="item__since">Since 0.1.0 &mdash; &lt;p&gt;For modern browsers&lt;/p&gt; &lt;ol&gt; &lt;li&gt;The space content is one way to avoid an Opera bug when the &lt;code&gt;contenteditable&lt;/code&gt; attribute is included anywhere else in the document. Otherwise it causes space to appear at the top and bottom of elements that are clearfixed.&lt;/li&gt; &lt;li&gt;The use of &lt;code&gt;table&lt;/code&gt; rather than &lt;code&gt;block&lt;/code&gt; is only necessary if using &lt;code&gt;::before&lt;/code&gt; to contain the top-margins of child elements.&lt;/li&gt; &lt;/ol&gt;</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin clearfix($className: &quot;clearfix&quot;, $breakpoints: config.$breakpoints) { 
+	.#{$className} {
+		@supports not (display: flow-root) {
+			&amp;::before,
+			&amp;::after {
+				display: table; // 2
+				content: &quot; &quot;; // 1
+			}
+
+			&amp;::after {
+				clear: both;
+			}
+		}
+		@supports (display: flow-root) {
+			display: flow-root;
+		}
+
+		@each $breakpoint in map.keys($breakpoints) {
+			@include media-breakpoint-up($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint},
+				&amp;-#{$breakpoint}-up {
+					@supports not (display: flow-root) {
+						&amp;::before,
+						&amp;::after {
+							display: table; // 2
+							content: &quot; &quot;; // 1
+						}
+
+						&amp;::after {
+							clear: both;
+						}
+					}
+					@supports (display: flow-root) {
+						display: flow-root;
+					}
+				}
+			}
+
+			@include media-breakpoint-down($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint}-down {
+					@supports not (display: flow-root) {
+						&amp;::before,
+						&amp;::after {
+							display: table; // 2
+							content: &quot; &quot;; // 1
+						}
+
+						&amp;::after {
+							clear: both;
+						}
+					}
+					@supports (display: flow-root) {
+						display: flow-root;
+					}
+				}
+			}
+
+			@include media-breakpoint-only($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint}-only {
+					@supports not (display: flow-root) {
+						&amp;::before,
+						&amp;::after {
+							display: table; // 2
+							content: &quot; &quot;; // 1
+						}
+
+						&amp;::after {
+							clear: both;
+						}
+					}
+					@supports (display: flow-root) {
+						display: flow-root;
+					}
+				}
+			}
+		}
+	}
+ }" data-collapsed="@mixin clearfix($className: &quot;clearfix&quot;, $breakpoints: config.$breakpoints) { ... }"><code>@mixin clearfix($className: &quot;clearfix&quot;, $breakpoints: config.$breakpoints) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Clearfix</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$className</code></th><td data-label="desc"><p>a CSS class name that will prefix all helpers</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;clearfix&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>a map of grid breakpoints</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>config.$breakpoints</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>@include clear($className: c, $breakpoints: (&quot;sm&quot;: 480px));</code></pre></div><div class="item__example example"><pre class="example__code language-html"><code>&lt;div class=&quot;clear-fix&quot;&gt;...&lt;/div&gt;</code></pre></div><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="http://nicolasgallagher.com/micro-clearfix-hack/">http://nicolasgallagher.com/micro-clearfix-hack/</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Nicolas Gallagher</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="text"><div class="container">text</div></h1><section class="main__sub-section" id="text-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="text-mixin-text-reset"><h3 class="item__heading"><a class="item__name" href="#mixin-text-reset">text-reset</a></h3><span class="item__since">Since 0.1.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin text-reset($className: &quot;text-reset&quot;, $line-height: config.$line-height, $family: config.$font-family, $weight: normal) { 
+	.#{$className} {
+		font-family: $family;
+		/* We deliberately do NOT reset font-size. */
+		font-style: normal;
+		font-weight: $weight;
+		letter-spacing: normal;
+		line-break: auto;
+		line-height: $line-height;
+		text-align: left; // Fallback for where `start` is not supported
+		text-align: start;
+		text-decoration: none;
+		text-shadow: none;
+		text-transform: none;
+		white-space: normal;
+		word-break: normal;
+		word-spacing: normal;
+		word-wrap: normal;
+	}
+ }" data-collapsed="@mixin text-reset($className: &quot;text-reset&quot;, $line-height: config.$line-height, $family: config.$font-family, $weight: normal) { ... }"><code>@mixin text-reset($className: &quot;text-reset&quot;, $line-height: config.$line-height, $family: config.$font-family, $weight: normal) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Reset text back to its original browser defaults</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$className</code></th><td data-label="desc"><p>a CSS class name that will prefix all helpers</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;text-reset&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$line-height</code></th><td data-label="desc"><p>a valid CSS number with which to rese</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>config.$line-height</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$family</code></th><td data-label="desc"><p>a font family with which to reset</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>config.$font-family</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$weight</code></th><td data-label="desc"><p>a font weight with which to reset</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>normal</code></td></tr></tbody></table></section><section class="main__item container item" id="text-mixin-text-truncate"><h3 class="item__heading"><a class="item__name" href="#mixin-text-truncate">text-truncate</a></h3><span class="item__since">Since 0.1.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin text-truncate($className: &quot;text-truncate&quot;, $breakpoints: config.$breakpoints) { 
+	.#{$className} {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		@each $breakpoint in map.keys($breakpoints) {
+			@include media-breakpoint-up($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint},
+				&amp;-#{$breakpoint}-up {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			@include media-breakpoint-down($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint}-down {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			@include media-breakpoint-only($name: $breakpoint, $breakpoints: $breakpoints) {
+				&amp;-#{$breakpoint}-only {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+ }" data-collapsed="@mixin text-truncate($className: &quot;text-truncate&quot;, $breakpoints: config.$breakpoints) { ... }"><code>@mixin text-truncate($className: &quot;text-truncate&quot;, $breakpoints: config.$breakpoints) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Truncate the text</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$className</code></th><td data-label="desc"><p>a CSS class name that will prefix all helpers</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;text-truncate&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>a map of grid breakpoints</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>config.$breakpoints</code></td></tr></tbody></table></section><section class="main__item container item" id="text-mixin-text-underline"><h3 class="item__heading"><a class="item__name" href="#mixin-text-underline">text-underline</a></h3><span class="item__since">Since 0.1.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin text-underline($className: &quot;text-underline&quot;, $direction: &quot;bottom&quot;, $border: config.$border-width solid, $padding: .25rem) { 
+	.#{$className} {
+		@if map.get(config.$box-directions, $direction) {
+			border-#{$direction}: $border;
+			padding-#{$direction}: $padding;
+		} @else {
+			border-bottom: $border;
+			padding-bottom: $padding;
+		}
+	}
+ }" data-collapsed="@mixin text-underline($className: &quot;text-underline&quot;, $direction: &quot;bottom&quot;, $border: config.$border-width solid, $padding: .25rem) { ... }"><code>@mixin text-underline($className: &quot;text-underline&quot;, $direction: &quot;bottom&quot;, $border: config.$border-width solid, $padding: .25rem) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Add an underline decoration to your heading.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$className</code></th><td data-label="desc"><p>a CSS class name that will prefix all helpers</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;text-underline&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$direction</code></th><td data-label="desc"><p>a valid CSS number to multiply by the rows to max out the height; generally should match the font size used within the element</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&quot;bottom&quot;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$border</code></th><td data-label="desc"><p>the number of rows the show;</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>config.$border-width solid</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$padding</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>String</code></td><td data-label="default"><code>.25rem</code></td></tr></tbody></table></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://the-holocron.github.io/artoo">@theholocron/artoo</a><!-- Version --> <span class="project-info__version">- v0.1.0</span><!-- License --> <span class="project-info__license">, under GPL-3.0</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
