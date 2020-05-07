@@ -3,13 +3,20 @@
 @use "../src/images" as *;
 
 @include describe("images") {
-	@include it("should print out styles") {
-		@include assert() {
-			@include output() {
-				@include img-responsive();
-			}
+	@include describe("img-responsive") {
+		@include it("should print out styles") {
+			@include assert() {
+				@include output() {
+					@include img-responsive();
+				}
 
-			@include expect() {
+				@include expect() {
+					.img-responsive {
+						display: block;
+						max-width: 100%;
+						height: auto;
+					}
+				}
 			}
 		}
 	}

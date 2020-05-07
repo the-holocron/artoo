@@ -17,8 +17,8 @@
 ///   <div class="center-x">absolute centered on x axis</div>
 ///   <div class="center-axis-y-xs-up">absolute centered on y axis</div>
 /// </div>
-@mixin center($className: "center", $breakpoints: config.$breakpoints) {
-	#{$className} {
+@mixin centers($className: "center", $breakpoints: config.$breakpoints) {
+	.#{$className} {
 		&,
 		&-a,
 		&-all {
@@ -33,7 +33,7 @@
 
 		&-y,
 		&-axis-y,
-		&-y {
+		&-horizontal {
 			@include center("horizontal");
 		}
 
@@ -61,8 +61,8 @@
 				&-y-#{$breakpoint}-up,
 				&-axis-y-#{$breakpoint},
 				&-axis-y-#{$breakpoint}-up,
-				&-y-#{$breakpoint},
-				&-y-#{$breakpoint}-up {
+				&-horizontal-#{$breakpoint},
+				&-horizontal-#{$breakpoint}-up {
 					@include center("horizontal");
 				}
 			}
@@ -82,7 +82,7 @@
 
 				&-y-#{$breakpoint}-down,
 				&-axis-y-#{$breakpoint}-down,
-				&-y-#{$breakpoint}-down {
+				&-horizontal-#{$breakpoint}-down {
 					@include center("horizontal");
 				}
 			}
@@ -102,7 +102,7 @@
 
 				&-y-#{$breakpoint}-only,
 				&-axis-y-#{$breakpoint}-only,
-				&-y-#{$breakpoint}-only {
+				&-horizontal-#{$breakpoint}-only {
 					@include center("horizontal");
 				}
 			}

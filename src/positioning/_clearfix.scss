@@ -24,7 +24,7 @@
 /// @example html
 ///   <div class="clear-fix">...</div>
 @mixin clearfix($className: "clearfix", $breakpoints: config.$breakpoints) {
-	#{$className} {
+	.#{$className} {
 		@supports not (display: flow-root) {
 			&::before,
 			&::after {

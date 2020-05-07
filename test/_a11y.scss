@@ -1,15 +1,37 @@
-/* stylelint-disable scss/media-feature-value-dollar-variable */
+/* stylelint-disable sh-waqar/declaration-use-variable */
 @use "sass-true/sass/true" as *;
 @use "../src/a11y" as *;
 
 @include describe("a11y") {
-	@include it("should print out styles") {
-		@include assert() {
-			@include output() {
-				@include screen-reader-only();
-			}
+	@include describe("screen-reader-only") {
+		@include it("should print out styles") {
+			@include assert() {
+				@include output() {
+					@include screen-reader-only();
+				}
 
-			@include expect() {
+				@include expect() {
+					.is-sr-only {
+						position: absolute;
+						width: .0625rem;
+						height: .0625rem;
+						overflow: hidden;
+						clip: rect(0, 0, 0, 0);
+						margin: -.0625rem;
+						border: 0;
+						padding: 0;
+					}
+
+					.is-sr-only.is-focusable:active,
+					.is-sr-only.is-focusable:focus {
+						position: static;
+						width: auto;
+						height: auto;
+						overflow: visible;
+						clip: auto;
+						margin: 0;
+					}
+				}
 			}
 		}
 	}

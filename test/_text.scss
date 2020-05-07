@@ -1,15 +1,181 @@
-/* stylelint-disable scss/media-feature-value-dollar-variable */
+/* stylelint-disable scss/media-feature-value-dollar-variable, sh-waqar/declaration-use-variable, font-family-name-quotes */
 @use "sass-true/sass/true" as *;
 @use "../src/text" as *;
 
 @include describe("text") {
-	@include it("should print out styles") {
-		@include assert() {
-			@include output() {
-				@include text-reset();
-			}
+	@include describe("text-reset") {
+		@include it("should print out styles") {
+			@include assert() {
+				@include output() {
+					@include text-reset();
+				}
 
-			@include expect() {
+				@include expect() {
+					.text-reset {
+						font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, arial, sans-serif;
+						/* We deliberately do NOT reset font-size. */
+						font-style: normal;
+						font-weight: normal;
+						letter-spacing: normal;
+						line-break: auto;
+						line-height: 1.5;
+						text-align: left;
+						text-align: start;
+						text-decoration: none;
+						text-shadow: none;
+						text-transform: none;
+						white-space: normal;
+						word-break: normal;
+						word-spacing: normal;
+						word-wrap: normal;
+					}
+				}
+			}
+		}
+	}
+
+	@include describe("text-truncate") {
+		@include it("should print out styles") {
+			@include assert() {
+				@include output() {
+					@include text-truncate();
+				}
+
+				@include expect() {
+					.text-truncate {
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+
+					@media (min-width: 0) {
+						.text-truncate-xs,
+						.text-truncate-xs-up {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (max-width: 33.98em) {
+						.text-truncate-xs-down {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (min-width: 0) and (max-width: 33.98em) {
+						.text-truncate-xs-only {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (min-width: 34em) {
+						.text-truncate-sm,
+						.text-truncate-sm-up {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (max-width: 47.98em) {
+						.text-truncate-sm-down {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (min-width: 34em) and (max-width: 47.98em) {
+						.text-truncate-sm-only {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (min-width: 48em) {
+						.text-truncate-md,
+						.text-truncate-md-up {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (max-width: 61.98em) {
+						.text-truncate-md-down {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (min-width: 48em) and (max-width: 61.98em) {
+						.text-truncate-md-only {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (min-width: 62em) {
+						.text-truncate-lg,
+						.text-truncate-lg-up {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (max-width: 74.98em) {
+						.text-truncate-lg-down {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (min-width: 62em) and (max-width: 74.98em) {
+						.text-truncate-lg-only {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					@media (min-width: 75em) {
+						.text-truncate-xl,
+						.text-truncate-xl-up {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+
+					.text-truncate-xl-down {
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+
+					@media (min-width: 75em) {
+						.text-truncate-xl-only {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include describe("text-underline") {
+		@include it("should print out styles") {
+			@include assert() {
+				@include output() {
+					@include text-underline();
+				}
+
+				@include expect() {
+					.text-underline {
+						border-bottom: .1875rem solid;
+						padding-bottom: .25rem;
+					}
+				}
 			}
 		}
 	}

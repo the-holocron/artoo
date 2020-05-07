@@ -3,13 +3,795 @@
 @use "../src/positioning" as *;
 
 @include describe("positioning") {
-	@include it("should print out styles") {
-		@include assert() {
-			@include output() {
-				@include center();
-			}
+	@include describe("centers") {
+		@include it("should print out styles") {
+			@include assert() {
+				@include output() {
+					@include centers();
+				}
 
-			@include expect() {
+				@include expect() {
+					.center,
+					.center-a,
+					.center-all {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					}
+
+					.center-x,
+					.center-axis-x,
+					.center-vertical {
+						position: absolute;
+						top: 50%;
+						transform: translateY(-50%);
+					}
+
+					.center-y,
+					.center-axis-y,
+					.center-horizontal {
+						position: absolute;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+
+					@media (min-width: 0) {
+						.center-xs,
+						.center-xs-up,
+						.center-a-xs,
+						.center-a-xs-up,
+						.center-all-xs,
+						.center-all-xs-up {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-xs,
+						.center-x-xs-up,
+						.center-axis-x-xs,
+						.center-axis-x-xs-up,
+						.center-vertical-xs,
+						.center-vertical-xs-up {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-xs,
+						.center-y-xs-up,
+						.center-axis-y-xs,
+						.center-axis-y-xs-up,
+						.center-horizontal-xs,
+						.center-horizontal-xs-up {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (max-width: 33.98em) {
+						.center-xs-down,
+						.center-a-xs-down,
+						.center-all-xs-down {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-xs-down,
+						.center-axis-x-xs-down,
+						.center-vertical-xs-down {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-xs-down,
+						.center-axis-y-xs-down,
+						.center-horizontal-xs-down {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (min-width: 0) and (max-width: 33.98em) {
+						.center-xs-only,
+						.center-a-xs-only,
+						.center-all-xs-only {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-xs-only,
+						.center-axis-x-xs-only,
+						.center-vertical-xs-only {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-xs-only,
+						.center-axis-y-xs-only,
+						.center-horizontal-xs-only {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (min-width: 34em) {
+						.center-sm,
+						.center-sm-up,
+						.center-a-sm,
+						.center-a-sm-up,
+						.center-all-sm,
+						.center-all-sm-up {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-sm,
+						.center-x-sm-up,
+						.center-axis-x-sm,
+						.center-axis-x-sm-up,
+						.center-vertical-sm,
+						.center-vertical-sm-up {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-sm,
+						.center-y-sm-up,
+						.center-axis-y-sm,
+						.center-axis-y-sm-up,
+						.center-horizontal-sm,
+						.center-horizontal-sm-up {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (max-width: 47.98em) {
+						.center-sm-down,
+						.center-a-sm-down,
+						.center-all-sm-down {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-sm-down,
+						.center-axis-x-sm-down,
+						.center-vertical-sm-down {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-sm-down,
+						.center-axis-y-sm-down,
+						.center-horizontal-sm-down {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (min-width: 34em) and (max-width: 47.98em) {
+						.center-sm-only,
+						.center-a-sm-only,
+						.center-all-sm-only {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-sm-only,
+						.center-axis-x-sm-only,
+						.center-vertical-sm-only {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-sm-only,
+						.center-axis-y-sm-only,
+						.center-horizontal-sm-only {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (min-width: 48em) {
+						.center-md,
+						.center-md-up,
+						.center-a-md,
+						.center-a-md-up,
+						.center-all-md,
+						.center-all-md-up {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-md,
+						.center-x-md-up,
+						.center-axis-x-md,
+						.center-axis-x-md-up,
+						.center-vertical-md,
+						.center-vertical-md-up {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-md,
+						.center-y-md-up,
+						.center-axis-y-md,
+						.center-axis-y-md-up,
+						.center-horizontal-md,
+						.center-horizontal-md-up {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (max-width: 61.98em) {
+						.center-md-down,
+						.center-a-md-down,
+						.center-all-md-down {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-md-down,
+						.center-axis-x-md-down,
+						.center-vertical-md-down {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-md-down,
+						.center-axis-y-md-down,
+						.center-horizontal-md-down {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (min-width: 48em) and (max-width: 61.98em) {
+						.center-md-only,
+						.center-a-md-only,
+						.center-all-md-only {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-md-only,
+						.center-axis-x-md-only,
+						.center-vertical-md-only {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-md-only,
+						.center-axis-y-md-only,
+						.center-horizontal-md-only {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (min-width: 62em) {
+						.center-lg,
+						.center-lg-up,
+						.center-a-lg,
+						.center-a-lg-up,
+						.center-all-lg,
+						.center-all-lg-up {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-lg,
+						.center-x-lg-up,
+						.center-axis-x-lg,
+						.center-axis-x-lg-up,
+						.center-vertical-lg,
+						.center-vertical-lg-up {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-lg,
+						.center-y-lg-up,
+						.center-axis-y-lg,
+						.center-axis-y-lg-up,
+						.center-horizontal-lg,
+						.center-horizontal-lg-up {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (max-width: 74.98em) {
+						.center-lg-down,
+						.center-a-lg-down,
+						.center-all-lg-down {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-lg-down,
+						.center-axis-x-lg-down,
+						.center-vertical-lg-down {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-lg-down,
+						.center-axis-y-lg-down,
+						.center-horizontal-lg-down {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (min-width: 62em) and (max-width: 74.98em) {
+						.center-lg-only,
+						.center-a-lg-only,
+						.center-all-lg-only {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-lg-only,
+						.center-axis-x-lg-only,
+						.center-vertical-lg-only {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-lg-only,
+						.center-axis-y-lg-only,
+						.center-horizontal-lg-only {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+					@media (min-width: 75em) {
+						.center-xl,
+						.center-xl-up,
+						.center-a-xl,
+						.center-a-xl-up,
+						.center-all-xl,
+						.center-all-xl-up {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-xl,
+						.center-x-xl-up,
+						.center-axis-x-xl,
+						.center-axis-x-xl-up,
+						.center-vertical-xl,
+						.center-vertical-xl-up {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-xl,
+						.center-y-xl-up,
+						.center-axis-y-xl,
+						.center-axis-y-xl-up,
+						.center-horizontal-xl,
+						.center-horizontal-xl-up {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+
+					.center-xl-down,
+					.center-a-xl-down,
+					.center-all-xl-down {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					}
+
+					.center-x-xl-down,
+					.center-axis-x-xl-down,
+					.center-vertical-xl-down {
+						position: absolute;
+						top: 50%;
+						transform: translateY(-50%);
+					}
+
+					.center-y-xl-down,
+					.center-axis-y-xl-down,
+					.center-horizontal-xl-down {
+						position: absolute;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+
+					@media (min-width: 75em) {
+						.center-xl-only,
+						.center-a-xl-only,
+						.center-all-xl-only {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+
+						.center-x-xl-only,
+						.center-axis-x-xl-only,
+						.center-vertical-xl-only {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+
+						.center-y-xl-only,
+						.center-axis-y-xl-only,
+						.center-horizontal-xl-only {
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include describe("clearfix") {
+		@include it("should print out styles") {
+			@include assert() {
+				@include output() {
+					@include clearfix();
+				}
+
+				@include expect() {
+					@supports not (display: flow-root) {
+						.clearfix::before,
+						.clearfix::after {
+							display: table;
+							content: " ";
+						}
+
+						.clearfix::after {
+							clear: both;
+						}
+					}
+					@supports (display: flow-root) {
+						.clearfix {
+							display: flow-root;
+						}
+					}
+
+					@media (min-width: 0) {
+						@supports not (display: flow-root) {
+							.clearfix-xs::before,
+							.clearfix-xs::after,
+							.clearfix-xs-up::before,
+							.clearfix-xs-up::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-xs::after,
+							.clearfix-xs-up::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-xs,
+							.clearfix-xs-up {
+								display: flow-root;
+							}
+						}
+					}
+					@media (max-width: 33.98em) {
+						@supports not (display: flow-root) {
+							.clearfix-xs-down::before,
+							.clearfix-xs-down::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-xs-down::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-xs-down {
+								display: flow-root;
+							}
+						}
+					}
+					@media (min-width: 0) and (max-width: 33.98em) {
+						@supports not (display: flow-root) {
+							.clearfix-xs-only::before,
+							.clearfix-xs-only::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-xs-only::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-xs-only {
+								display: flow-root;
+							}
+						}
+					}
+					@media (min-width: 34em) {
+						@supports not (display: flow-root) {
+							.clearfix-sm::before,
+							.clearfix-sm::after,
+							.clearfix-sm-up::before,
+							.clearfix-sm-up::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-sm::after,
+							.clearfix-sm-up::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-sm,
+							.clearfix-sm-up {
+								display: flow-root;
+							}
+						}
+					}
+					@media (max-width: 47.98em) {
+						@supports not (display: flow-root) {
+							.clearfix-sm-down::before,
+							.clearfix-sm-down::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-sm-down::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-sm-down {
+								display: flow-root;
+							}
+						}
+					}
+					@media (min-width: 34em) and (max-width: 47.98em) {
+						@supports not (display: flow-root) {
+							.clearfix-sm-only::before,
+							.clearfix-sm-only::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-sm-only::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-sm-only {
+								display: flow-root;
+							}
+						}
+					}
+					@media (min-width: 48em) {
+						@supports not (display: flow-root) {
+							.clearfix-md::before,
+							.clearfix-md::after,
+							.clearfix-md-up::before,
+							.clearfix-md-up::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-md::after,
+							.clearfix-md-up::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-md,
+							.clearfix-md-up {
+								display: flow-root;
+							}
+						}
+					}
+					@media (max-width: 61.98em) {
+						@supports not (display: flow-root) {
+							.clearfix-md-down::before,
+							.clearfix-md-down::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-md-down::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-md-down {
+								display: flow-root;
+							}
+						}
+					}
+					@media (min-width: 48em) and (max-width: 61.98em) {
+						@supports not (display: flow-root) {
+							.clearfix-md-only::before,
+							.clearfix-md-only::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-md-only::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-md-only {
+								display: flow-root;
+							}
+						}
+					}
+					@media (min-width: 62em) {
+						@supports not (display: flow-root) {
+							.clearfix-lg::before,
+							.clearfix-lg::after,
+							.clearfix-lg-up::before,
+							.clearfix-lg-up::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-lg::after,
+							.clearfix-lg-up::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-lg,
+							.clearfix-lg-up {
+								display: flow-root;
+							}
+						}
+					}
+					@media (max-width: 74.98em) {
+						@supports not (display: flow-root) {
+							.clearfix-lg-down::before,
+							.clearfix-lg-down::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-lg-down::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-lg-down {
+								display: flow-root;
+							}
+						}
+					}
+					@media (min-width: 62em) and (max-width: 74.98em) {
+						@supports not (display: flow-root) {
+							.clearfix-lg-only::before,
+							.clearfix-lg-only::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-lg-only::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-lg-only {
+								display: flow-root;
+							}
+						}
+					}
+					@media (min-width: 75em) {
+						@supports not (display: flow-root) {
+							.clearfix-xl::before,
+							.clearfix-xl::after,
+							.clearfix-xl-up::before,
+							.clearfix-xl-up::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-xl::after,
+							.clearfix-xl-up::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-xl,
+							.clearfix-xl-up {
+								display: flow-root;
+							}
+						}
+					}
+
+					@supports not (display: flow-root) {
+						.clearfix-xl-down::before,
+						.clearfix-xl-down::after {
+							display: table;
+							content: " ";
+						}
+
+						.clearfix-xl-down::after {
+							clear: both;
+						}
+					}
+					@supports (display: flow-root) {
+						.clearfix-xl-down {
+							display: flow-root;
+						}
+					}
+
+					@media (min-width: 75em) {
+						@supports not (display: flow-root) {
+							.clearfix-xl-only::before,
+							.clearfix-xl-only::after {
+								display: table;
+								content: " ";
+							}
+
+							.clearfix-xl-only::after {
+								clear: both;
+							}
+						}
+						@supports (display: flow-root) {
+							.clearfix-xl-only {
+								display: flow-root;
+							}
+						}
+					}
+				}
 			}
 		}
 	}

@@ -3,13 +3,115 @@
 @use "../src/box-model" as *;
 
 @include describe("box-model") {
-	@include it("should print out styles") {
-		@include assert() {
-			@include output() {
-				@include is-scrollable();
-			}
+	@include describe("is-scrollable") {
+		@include it("should print out styles") {
+			@include assert() {
+				@include output() {
+					@include is-scrollable();
+				}
 
-			@include expect() {
+				@include expect() {
+					.is-scrollable {
+						max-height: 20rem;
+						overflow-y: scroll;
+					}
+
+					@media (min-width: 0) {
+						.is-scrollable-xs,
+						.is-scrollable-xs-up {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (max-width: 33.98em) {
+						.is-scrollable-xs-down {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (min-width: 0) and (max-width: 33.98em) {
+						.is-scrollable-xs-only {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (min-width: 34em) {
+						.is-scrollable-sm,
+						.is-scrollable-sm-up {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (max-width: 47.98em) {
+						.is-scrollable-sm-down {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (min-width: 34em) and (max-width: 47.98em) {
+						.is-scrollable-sm-only {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (min-width: 48em) {
+						.is-scrollable-md,
+						.is-scrollable-md-up {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (max-width: 61.98em) {
+						.is-scrollable-md-down {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (min-width: 48em) and (max-width: 61.98em) {
+						.is-scrollable-md-only {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (min-width: 62em) {
+						.is-scrollable-lg,
+						.is-scrollable-lg-up {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (max-width: 74.98em) {
+						.is-scrollable-lg-down {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (min-width: 62em) and (max-width: 74.98em) {
+						.is-scrollable-lg-only {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+					@media (min-width: 75em) {
+						.is-scrollable-xl,
+						.is-scrollable-xl-up {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+
+					.is-scrollable-xl-down {
+						max-height: 20rem;
+						overflow-y: scroll;
+					}
+
+					@media (min-width: 75em) {
+						.is-scrollable-xl-only {
+							max-height: 20rem;
+							overflow-y: scroll;
+						}
+					}
+				}
 			}
 		}
 	}

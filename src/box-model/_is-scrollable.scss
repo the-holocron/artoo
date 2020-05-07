@@ -13,7 +13,7 @@
 /// @param {Number} $height [config.$font-size] - a valid CSS number to multiply by the rows to max out the height; generally should match the font size used within the element
 /// @param {Number} $rows [20] - the number of rows the show;
 @mixin is-scrollable($className: "is-scrollable", $breakpoints: config.$breakpoints, $height: config.$font-size, $rows: 20) {
-	#{$className} {
+	.#{$className} {
 		max-height: ($rows * $height);
 		overflow-y: scroll;
 
