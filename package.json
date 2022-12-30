@@ -82,7 +82,7 @@
     "@theholocron/stylelint-config": "latest",
     "alex": "^7.1.0",
     "find-unused-sass-variables": "^1.0.5",
-    "mocha": "^7.0.0",
+    "mocha": "^10.2.0",
     "sass": "^1.26.3",
     "sass-true": "^5.0.0",
     "sassdoc": "^2.7.1"
